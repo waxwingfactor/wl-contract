@@ -292,9 +292,23 @@ class ContractAcceptanceTests(unittest.TestCase):
         first, data = self.compare(xml, xml, 0)
         second, _ = self.run_compare(self.old, self.new, 0)
         self.assertEqual(first.stdout, second.stdout)
-        digest = hashlib.sha256(xml.encode("utf-8")).hexdigest()
+        digest = hashlib.sha256(self.old.read_bytes()).hexdigest()
         self.assertEqual(data["old"]["sources"][0]["sha256"], digest)
-        self.assertEqual(data["new"]["sources"][0]["sha256"], digest)
+        self.assertEqual(data["new"]["sources"][0]["sha256"],
+                         hashlib.sha256(self.new.read_bytes()).hexdigest())
+
+    def test_crlf_source_hash_preserves_actual_bytes(self):
+        lf_bytes = protocol(FIRST + TICK).encode("utf-8")
+        crlf_bytes = lf_bytes.replace(b"\n", b"\r\n")
+        self.old.write_bytes(lf_bytes)
+        self.new.write_bytes(crlf_bytes)
+        _, data = self.run_compare(self.old, self.new, 0)
+        self.assertEqual(data["verdict"], "no_structural_hazards")
+        old_digest = hashlib.sha256(lf_bytes).hexdigest()
+        new_digest = hashlib.sha256(crlf_bytes).hexdigest()
+        self.assertNotEqual(old_digest, new_digest)
+        self.assertEqual(data["old"]["sources"][0]["sha256"], old_digest)
+        self.assertEqual(data["new"]["sources"][0]["sha256"], new_digest)
 
     def test_report_publication_never_overwrites_existing_file(self):
         self.old.write_text(protocol(FIRST), encoding="utf-8")

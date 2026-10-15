@@ -1,0 +1,69 @@
+{
+  "release_url": "https://github.com/waxwingfactor/wl-contract/releases/tag/v1.0.0",
+  "tag": "v1.0.0",
+  "source_commit": "3eac47707b692cfff170be6cfa586ef7633425e1",
+  "environment": {
+    "python": "3.9.6",
+    "system": "Darwin",
+    "release": "25.5.0",
+    "machine": "arm64"
+  },
+  "anonymous_http_fetches": "200 for metadata and all four requested assets",
+  "asset_sha256": {
+    "PROVENANCE.json": "cad0c460c9cbfc615c5684b8bc621dbb97883cb69711e2960d6e5f2ed26e7e57",
+    "wl_contract-1.0.0-py3-none-any.whl": "5a683a8b5bf00870ceea76f7c98d3a1b04582afc9eaec2080df72e96ad76a101",
+    "wl_contract-1.0.0.tar.gz": "90dee1f28c1b066789f58a209905d66dafb60de085f813f0eb81a7f26c722183"
+  },
+  "github_asset_digests_matched": true,
+  "wheel_sdist_modules_match_provenance": true,
+  "observations": [
+    {
+      "artifact": "wheel",
+      "installed_outside_checkout": true,
+      "tests": "----------------------------------------------------------------------\nRan 86 tests in 4.089s\n\nOK",
+      "cases": [
+        {
+          "input": "baseline.xml",
+          "exit": 0,
+          "verdict": "no_structural_hazards"
+        },
+        {
+          "input": "broken.xml",
+          "exit": 1,
+          "verdict": "incompatible"
+        },
+        {
+          "input": "extended.xml",
+          "exit": 3,
+          "verdict": "needs_review"
+        }
+      ],
+      "invalid_xml_exit": 2
+    },
+    {
+      "artifact": "sdist",
+      "installed_outside_checkout": true,
+      "tests": "----------------------------------------------------------------------\nRan 86 tests in 4.215s\n\nOK",
+      "cases": [
+        {
+          "input": "baseline.xml",
+          "exit": 0,
+          "verdict": "no_structural_hazards"
+        },
+        {
+          "input": "broken.xml",
+          "exit": 1,
+          "verdict": "incompatible"
+        },
+        {
+          "input": "extended.xml",
+          "exit": 3,
+          "verdict": "needs_review"
+        }
+      ],
+      "invalid_xml_exit": 2
+    }
+  ],
+  "relocated_inputs_source_removed_socket_blocked": true,
+  "behavioral_interoperability_certified": false
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protocol name="garden">
+  <description summary="Constructed example">A synthetic counter protocol for the tutorial.</description>
+  <interface name="garden_counter_v1" version="1">
+    <request name="reset"/>
+    <request name="destroy" type="destructor"/>
+    <request name="set"><arg name="value" type="uint"/></request>
+    <event name="value"><arg name="value" type="uint"/></event>
+  </interface>
+</protocol>

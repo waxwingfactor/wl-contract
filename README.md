@@ -80,7 +80,7 @@ that were not supplied. Read the [complete input/output contract](docs/contract.
 - [Dated research and feature-level alternatives](docs/research.md)
 - [Beachhead, constructed scenario and positioning](docs/positioning.md)
 - [Release and contribution process](docs/maintenance.md)
-- [Published validation evidence](https://github.com/waxwingfactor/wl-contract/releases/latest)
+- [Actual public-release verification](docs/verification-v1.0.0.md)
 
 ```sh
 python -m pip install build

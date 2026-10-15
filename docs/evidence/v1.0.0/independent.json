@@ -1,0 +1,527 @@
+{
+  "anonymous_downloads": true,
+  "artifacts": [
+    {
+      "github_asset_id": 644941316,
+      "github_digest": "sha256:cad0c460c9cbfc615c5684b8bc621dbb97883cb69711e2960d6e5f2ed26e7e57",
+      "name": "PROVENANCE.json",
+      "sha256": "cad0c460c9cbfc615c5684b8bc621dbb97883cb69711e2960d6e5f2ed26e7e57",
+      "size": 1472,
+      "url": "https://github.com/waxwingfactor/wl-contract/releases/download/v1.0.0/PROVENANCE.json"
+    },
+    {
+      "github_asset_id": 644941314,
+      "github_digest": "sha256:e7a159453959eba183e0cca26b91cbe3497fe88a761b174605a27d39ccaa1057",
+      "name": "SHA256SUMS",
+      "sha256": "e7a159453959eba183e0cca26b91cbe3497fe88a761b174605a27d39ccaa1057",
+      "size": 274,
+      "url": "https://github.com/waxwingfactor/wl-contract/releases/download/v1.0.0/SHA256SUMS"
+    },
+    {
+      "github_asset_id": 644941310,
+      "github_digest": "sha256:5a683a8b5bf00870ceea76f7c98d3a1b04582afc9eaec2080df72e96ad76a101",
+      "name": "wl_contract-1.0.0-py3-none-any.whl",
+      "sha256": "5a683a8b5bf00870ceea76f7c98d3a1b04582afc9eaec2080df72e96ad76a101",
+      "size": 15477,
+      "url": "https://github.com/waxwingfactor/wl-contract/releases/download/v1.0.0/wl_contract-1.0.0-py3-none-any.whl"
+    },
+    {
+      "github_asset_id": 644941315,
+      "github_digest": "sha256:90dee1f28c1b066789f58a209905d66dafb60de085f813f0eb81a7f26c722183",
+      "name": "wl_contract-1.0.0.tar.gz",
+      "sha256": "90dee1f28c1b066789f58a209905d66dafb60de085f813f0eb81a7f26c722183",
+      "size": 39968,
+      "url": "https://github.com/waxwingfactor/wl-contract/releases/download/v1.0.0/wl_contract-1.0.0.tar.gz"
+    }
+  ],
+  "checks": [
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "<verification-root>/downloads/wl_contract-1.0.0-py3-none-any.whl"
+      ],
+      "expected_exit": 0,
+      "name": "wheel installation",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "Processing ./downloads/wl_contract-1.0.0-py3-none-any.whl\nInstalling collected packages: wl-contract\nSuccessfully installed wl-contract-1.0.0\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--index-url",
+        "https://pypi.org/simple",
+        "--only-binary=:all:",
+        "setuptools>=77",
+        "wheel"
+      ],
+      "expected_exit": 0,
+      "name": "sdist build dependencies",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "WARNING: You are using pip version 21.2.4; however, version 26.0.1 is available.\nYou should consider upgrading via the '<verification-root>/sdist-venv/bin/python -m pip install --upgrade pip' command.\n",
+      "stdout": "Collecting setuptools>=77\n  Using cached setuptools-82.0.1-py3-none-any.whl (1.0 MB)\nCollecting wheel\n  Using cached wheel-0.48.0-py3-none-any.whl (33 kB)\nCollecting packaging>=24.0\n  Using cached packaging-26.3-py3-none-any.whl (129 kB)\nInstalling collected packages: packaging, wheel, setuptools\n  Attempting uninstall: setuptools\n    Found existing installation: setuptools 58.0.4\n    Uninstalling setuptools-58.0.4:\n      Successfully uninstalled setuptools-58.0.4\nSuccessfully installed packaging-26.3 setuptools-82.0.1 wheel-0.48.0\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--no-build-isolation",
+        "<verification-root>/downloads/wl_contract-1.0.0.tar.gz"
+      ],
+      "expected_exit": 0,
+      "name": "sdist noneditable installation",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "Processing ./downloads/wl_contract-1.0.0.tar.gz\n    Preparing wheel metadata: started\n    Preparing wheel metadata: finished with status 'done'\nBuilding wheels for collected packages: wl-contract\n  Building wheel for wl-contract (PEP 517): started\n  Building wheel for wl-contract (PEP 517): finished with status 'done'\n  Created wheel for wl-contract: filename=wl_contract-1.0.0-py3-none-any.whl size=15477 sha256=bb137e65dc14fa7ea02ab9915c01c7860dfd96ec24c9bbabfff1f13b5d82bbca\n  Stored in directory: /USER/Library/Caches/pip/wheels/9c/59/4d/f0dd75ab49c145546449c2249d78a85d03c250fcafd3b772aa\nSuccessfully built wl-contract\nInstalling collected packages: wl-contract\nSuccessfully installed wl-contract-1.0.0\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport importlib.metadata, json, pathlib, sys, wl_contract\norigin = pathlib.Path(wl_contract.__file__).resolve()\nprefix = pathlib.Path(sys.prefix).resolve()\nassert prefix in origin.parents, \"Package escaped its clean venv\"\nassert importlib.metadata.version(\"wl-contract\") == \"1.0.0\"\nassert \"src\" not in origin.parts, \"Source checkout import leakage\"\nprint(json.dumps({\"version\": importlib.metadata.version(\"wl-contract\"), \"inside_clean_venv\": True, \"isolated\": bool(sys.flags.isolated)}))\n"
+      ],
+      "expected_exit": 0,
+      "name": "wheel import origin",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"version\": \"1.0.0\", \"inside_clean_venv\": true, \"isolated\": true}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "<verification-root>/extracted-sdist/wl_contract-1.0.0/tests",
+        "-v"
+      ],
+      "expected_exit": 0,
+      "name": "wheel bundled full suite",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "test_argument_order_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_argument_type_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_breaking_change_takes_precedence_over_prose_review (test_acceptance.ContractAcceptanceTests) ... ok\ntest_crlf_source_hash_preserves_actual_bytes (test_acceptance.ContractAcceptanceTests) ... ok\ntest_destructor_lifetime_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_directory_resolves_external_interface_in_same_input_bundle (test_acceptance.ContractAcceptanceTests) ... ok\ntest_duplicate_interface_in_bundle_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_empty_bundle_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_enum_bitfield_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_enum_integer_spellings_are_semantically_equivalent (test_acceptance.ContractAcceptanceTests) ... ok\ntest_event_opcode_insertion_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_existing_enum_numeric_value_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_future_since_beyond_interface_version_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_generic_new_id_event_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_generic_to_typed_new_id_changes_wire_shape (test_acceptance.ContractAcceptanceTests) ... ok\ntest_interface_version_cannot_decrease (test_acceptance.ContractAcceptanceTests) ... ok\ntest_internal_entity_declarations_are_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_invalid_input_does_not_publish_partial_report (test_acceptance.ContractAcceptanceTests) ... ok\ntest_invalid_interface_versions_fail_closed (test_acceptance.ContractAcceptanceTests) ... ok\ntest_malformed_xml_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_message_reorder_with_identical_signatures_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_missing_input_fails_clearly (test_acceptance.ContractAcceptanceTests) ... ok\ntest_new_report_file_contains_complete_json (test_acceptance.ContractAcceptanceTests) ... ok\ntest_new_request_cannot_retroactively_exist_in_old_version (test_acceptance.ContractAcceptanceTests) ... ok\ntest_nullability_change_is_not_silently_clear (test_acceptance.ContractAcceptanceTests) ... ok\ntest_nullability_on_integer_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_oversize_file_is_rejected_before_parsing (test_acceptance.ContractAcceptanceTests) ... ok\ntest_prose_change_requires_human_review (test_acceptance.ContractAcceptanceTests) ... ok\ntest_repeated_reports_and_source_hashes_are_deterministic (test_acceptance.ContractAcceptanceTests) ... ok\ntest_report_publication_cannot_overwrite_an_input (test_acceptance.ContractAcceptanceTests) ... ok\ntest_report_publication_never_overwrites_existing_file (test_acceptance.ContractAcceptanceTests) ... ok\ntest_request_and_event_opcode_sequences_are_independent (test_acceptance.ContractAcceptanceTests) ... ok\ntest_same_version_insertion_moves_wire_opcode (test_acceptance.ContractAcceptanceTests) ... ok\ntest_since_gated_tail_addition_requires_review_without_structural_break (test_acceptance.ContractAcceptanceTests) ... ok\ntest_symlink_input_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_symlink_inside_directory_tree_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_too_many_xml_files_are_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_typed_to_generic_new_id_changes_wire_shape (test_acceptance.ContractAcceptanceTests) ... ok\ntest_unchanged_contract_is_clear (test_acceptance.ContractAcceptanceTests) ... ok\ntest_unknown_semantic_attribute_fails_closed (test_acceptance.ContractAcceptanceTests) ... ok\ntest_utf16_input_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_xml_entities_are_rejected_without_expansion (test_acceptance.ContractAcceptanceTests) ... ok\ntest_actual_upstream_blur_correction_is_one_numeric_break (test_integration.RevisionIntegrationTests) ... ok\ntest_enum_member_order_is_numeric_not_positional (test_integration.RevisionIntegrationTests) ... ok\ntest_existing_deprecated_message_cannot_disappear (test_integration.RevisionIntegrationTests) ... ok\ntest_existing_enum_member_cannot_disappear (test_integration.RevisionIntegrationTests) ... ok\ntest_parent_increase_must_reach_changed_child_version (test_integration.RevisionIntegrationTests) ... ok\ntest_parent_propagated_version_has_review_only (test_integration.RevisionIntegrationTests) ... ok\ntest_prose_whitespace_change_is_neutral (test_integration.RevisionIntegrationTests) ... ok\ntest_same_wire_rename_requires_api_review (test_integration.RevisionIntegrationTests) ... ok\ntest_version_bump_alone_retains_structural_no_hazards (test_integration.RevisionIntegrationTests) ... ok\ntest_argument_type_restrictions (test_parser.ParserTests) ... ok\ntest_constructor_and_message_argument_limits (test_parser.ParserTests) ... ok\ntest_decreasing_since_between_directions_is_valid (test_parser.ParserTests) ... ok\ntest_destroy_must_be_a_destructor (test_parser.ParserTests) ... ok\ntest_duplicate_enumeration_names_and_entries_fail (test_parser.ParserTests) ... ok\ntest_duplicate_protocol_identity_in_tree_fails (test_parser.ParserTests) ... ok\ntest_effective_defaults_and_explicit_false (test_parser.ParserTests) ... ok\ntest_empty_and_negative_bitfield_enumerations_fail (test_parser.ParserTests) ... ok\ntest_encoding_boundary_is_utf8 (test_parser.ParserTests) ... ok\ntest_enum_and_entry_since_are_independent (test_parser.ParserTests) ... ok\ntest_enum_integer_bases_and_boundaries (test_parser.ParserTests) ... ok\ntest_enum_requires_consistent_integer_domain (test_parser.ParserTests) ... ok\ntest_external_object_and_enum_contracts_remain_literal (test_parser.ParserTests) ... ok\ntest_file_replaced_by_fifo_before_open_fails_without_blocking (test_parser.ParserTests) ... ok\ntest_filesystem_depth_is_bounded (test_parser.ParserTests) ... ok\ntest_frozen_interface_stays_at_one (test_parser.ParserTests) ... ok\ntest_generic_constructor_expansion_counts_toward_runtime_limit (test_parser.ParserTests) ... ok\ntest_known_bitfield_reference_requires_uint (test_parser.ParserTests) ... ok\ntest_message_and_argument_names_are_unique (test_parser.ParserTests) ... ok\ntest_missing_enum_on_supplied_interface_is_invalid (test_parser.ParserTests) ... ok\ntest_nonxml_directory_entries_are_also_bounded (test_parser.ParserTests) ... ok\ntest_opcodes_count_each_direction_independently (test_parser.ParserTests) ... ok\ntest_provenance_hashes_original_utf8_bytes (test_parser.ParserTests) ... ok\ntest_recursive_paths_are_sorted_and_relative (test_parser.ParserTests) ... ok\ntest_strict_vocabulary_and_description_placement (test_parser.ParserTests) ... ok\ntest_summary_and_description_whitespace_normalize (test_parser.ParserTests) ... ok\ntest_supplied_cross_interface_enum_must_exist (test_parser.ParserTests) ... ok\ntest_symlink_directory_and_nonxml_symlinks_fail (test_parser.ParserTests) ... ok\ntest_total_snapshot_bytes_are_bounded (test_parser.ParserTests) ... ok\ntest_unsupported_integer_values_fail (test_parser.ParserTests) ... ok\ntest_version_and_deprecation_bounds (test_parser.ParserTests) ... ok\ntest_xml_cannot_fetch_or_expand_declared_entities (test_parser.ParserTests) ... ok\ntest_xml_depth_and_element_count_are_bounded (test_parser.ParserTests) ... ok\ntest_text_error_does_not_emit_terminal_controls_from_source_filename (test_review.TerminalReportReviewTests) ... ok\ntest_text_report_does_not_emit_terminal_controls_from_source_filename (test_review.TerminalReportReviewTests) ... ok\n\n----------------------------------------------------------------------\nRan 86 tests in 3.797s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "expected_exit": 0,
+      "name": "wheel dependency consistency",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "No broken requirements found.\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport hashlib, json, pathlib, sys, wl_contract\nexpected = json.loads(sys.argv[1])\npackage = pathlib.Path(wl_contract.__file__).resolve().parent\nassert pathlib.Path(sys.prefix).resolve() in package.parents\nassert sys.flags.isolated, \"Installed byte check must use an isolated interpreter\"\nactual = {\"src/wl_contract/\" + path.name: hashlib.sha256(path.read_bytes()).hexdigest()\n          for path in package.glob(\"*.py\")}\nassert actual == expected, \"Installed package bytes differ from release provenance\"\nprint(json.dumps({\"verified_module_count\": len(actual),\n                  \"matches_release_provenance\": True, \"modules_sha256\": actual}, sort_keys=True))\n",
+        "{\"src/wl_contract/__init__.py\": \"a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8\", \"src/wl_contract/__main__.py\": \"3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a\", \"src/wl_contract/compare.py\": \"31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b\", \"src/wl_contract/parser.py\": \"8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b\"}"
+      ],
+      "expected_exit": 0,
+      "name": "wheel installed module provenance",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"matches_release_provenance\": true, \"modules_sha256\": {\"src/wl_contract/__init__.py\": \"a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8\", \"src/wl_contract/__main__.py\": \"3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a\", \"src/wl_contract/compare.py\": \"31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b\", \"src/wl_contract/parser.py\": \"8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b\"}, \"verified_module_count\": 4}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport importlib.metadata, json, pathlib, sys, wl_contract\norigin = pathlib.Path(wl_contract.__file__).resolve()\nprefix = pathlib.Path(sys.prefix).resolve()\nassert prefix in origin.parents, \"Package escaped its clean venv\"\nassert importlib.metadata.version(\"wl-contract\") == \"1.0.0\"\nassert \"src\" not in origin.parts, \"Source checkout import leakage\"\nprint(json.dumps({\"version\": importlib.metadata.version(\"wl-contract\"), \"inside_clean_venv\": True, \"isolated\": bool(sys.flags.isolated)}))\n"
+      ],
+      "expected_exit": 0,
+      "name": "sdist import origin",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"version\": \"1.0.0\", \"inside_clean_venv\": true, \"isolated\": true}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "<verification-root>/extracted-sdist/wl_contract-1.0.0/tests",
+        "-v"
+      ],
+      "expected_exit": 0,
+      "name": "sdist bundled full suite",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "test_argument_order_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_argument_type_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_breaking_change_takes_precedence_over_prose_review (test_acceptance.ContractAcceptanceTests) ... ok\ntest_crlf_source_hash_preserves_actual_bytes (test_acceptance.ContractAcceptanceTests) ... ok\ntest_destructor_lifetime_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_directory_resolves_external_interface_in_same_input_bundle (test_acceptance.ContractAcceptanceTests) ... ok\ntest_duplicate_interface_in_bundle_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_empty_bundle_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_enum_bitfield_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_enum_integer_spellings_are_semantically_equivalent (test_acceptance.ContractAcceptanceTests) ... ok\ntest_event_opcode_insertion_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_existing_enum_numeric_value_change_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_future_since_beyond_interface_version_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_generic_new_id_event_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_generic_to_typed_new_id_changes_wire_shape (test_acceptance.ContractAcceptanceTests) ... ok\ntest_interface_version_cannot_decrease (test_acceptance.ContractAcceptanceTests) ... ok\ntest_internal_entity_declarations_are_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_invalid_input_does_not_publish_partial_report (test_acceptance.ContractAcceptanceTests) ... ok\ntest_invalid_interface_versions_fail_closed (test_acceptance.ContractAcceptanceTests) ... ok\ntest_malformed_xml_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_message_reorder_with_identical_signatures_is_breaking (test_acceptance.ContractAcceptanceTests) ... ok\ntest_missing_input_fails_clearly (test_acceptance.ContractAcceptanceTests) ... ok\ntest_new_report_file_contains_complete_json (test_acceptance.ContractAcceptanceTests) ... ok\ntest_new_request_cannot_retroactively_exist_in_old_version (test_acceptance.ContractAcceptanceTests) ... ok\ntest_nullability_change_is_not_silently_clear (test_acceptance.ContractAcceptanceTests) ... ok\ntest_nullability_on_integer_is_invalid (test_acceptance.ContractAcceptanceTests) ... ok\ntest_oversize_file_is_rejected_before_parsing (test_acceptance.ContractAcceptanceTests) ... ok\ntest_prose_change_requires_human_review (test_acceptance.ContractAcceptanceTests) ... ok\ntest_repeated_reports_and_source_hashes_are_deterministic (test_acceptance.ContractAcceptanceTests) ... ok\ntest_report_publication_cannot_overwrite_an_input (test_acceptance.ContractAcceptanceTests) ... ok\ntest_report_publication_never_overwrites_existing_file (test_acceptance.ContractAcceptanceTests) ... ok\ntest_request_and_event_opcode_sequences_are_independent (test_acceptance.ContractAcceptanceTests) ... ok\ntest_same_version_insertion_moves_wire_opcode (test_acceptance.ContractAcceptanceTests) ... ok\ntest_since_gated_tail_addition_requires_review_without_structural_break (test_acceptance.ContractAcceptanceTests) ... ok\ntest_symlink_input_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_symlink_inside_directory_tree_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_too_many_xml_files_are_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_typed_to_generic_new_id_changes_wire_shape (test_acceptance.ContractAcceptanceTests) ... ok\ntest_unchanged_contract_is_clear (test_acceptance.ContractAcceptanceTests) ... ok\ntest_unknown_semantic_attribute_fails_closed (test_acceptance.ContractAcceptanceTests) ... ok\ntest_utf16_input_is_rejected (test_acceptance.ContractAcceptanceTests) ... ok\ntest_xml_entities_are_rejected_without_expansion (test_acceptance.ContractAcceptanceTests) ... ok\ntest_actual_upstream_blur_correction_is_one_numeric_break (test_integration.RevisionIntegrationTests) ... ok\ntest_enum_member_order_is_numeric_not_positional (test_integration.RevisionIntegrationTests) ... ok\ntest_existing_deprecated_message_cannot_disappear (test_integration.RevisionIntegrationTests) ... ok\ntest_existing_enum_member_cannot_disappear (test_integration.RevisionIntegrationTests) ... ok\ntest_parent_increase_must_reach_changed_child_version (test_integration.RevisionIntegrationTests) ... ok\ntest_parent_propagated_version_has_review_only (test_integration.RevisionIntegrationTests) ... ok\ntest_prose_whitespace_change_is_neutral (test_integration.RevisionIntegrationTests) ... ok\ntest_same_wire_rename_requires_api_review (test_integration.RevisionIntegrationTests) ... ok\ntest_version_bump_alone_retains_structural_no_hazards (test_integration.RevisionIntegrationTests) ... ok\ntest_argument_type_restrictions (test_parser.ParserTests) ... ok\ntest_constructor_and_message_argument_limits (test_parser.ParserTests) ... ok\ntest_decreasing_since_between_directions_is_valid (test_parser.ParserTests) ... ok\ntest_destroy_must_be_a_destructor (test_parser.ParserTests) ... ok\ntest_duplicate_enumeration_names_and_entries_fail (test_parser.ParserTests) ... ok\ntest_duplicate_protocol_identity_in_tree_fails (test_parser.ParserTests) ... ok\ntest_effective_defaults_and_explicit_false (test_parser.ParserTests) ... ok\ntest_empty_and_negative_bitfield_enumerations_fail (test_parser.ParserTests) ... ok\ntest_encoding_boundary_is_utf8 (test_parser.ParserTests) ... ok\ntest_enum_and_entry_since_are_independent (test_parser.ParserTests) ... ok\ntest_enum_integer_bases_and_boundaries (test_parser.ParserTests) ... ok\ntest_enum_requires_consistent_integer_domain (test_parser.ParserTests) ... ok\ntest_external_object_and_enum_contracts_remain_literal (test_parser.ParserTests) ... ok\ntest_file_replaced_by_fifo_before_open_fails_without_blocking (test_parser.ParserTests) ... ok\ntest_filesystem_depth_is_bounded (test_parser.ParserTests) ... ok\ntest_frozen_interface_stays_at_one (test_parser.ParserTests) ... ok\ntest_generic_constructor_expansion_counts_toward_runtime_limit (test_parser.ParserTests) ... ok\ntest_known_bitfield_reference_requires_uint (test_parser.ParserTests) ... ok\ntest_message_and_argument_names_are_unique (test_parser.ParserTests) ... ok\ntest_missing_enum_on_supplied_interface_is_invalid (test_parser.ParserTests) ... ok\ntest_nonxml_directory_entries_are_also_bounded (test_parser.ParserTests) ... ok\ntest_opcodes_count_each_direction_independently (test_parser.ParserTests) ... ok\ntest_provenance_hashes_original_utf8_bytes (test_parser.ParserTests) ... ok\ntest_recursive_paths_are_sorted_and_relative (test_parser.ParserTests) ... ok\ntest_strict_vocabulary_and_description_placement (test_parser.ParserTests) ... ok\ntest_summary_and_description_whitespace_normalize (test_parser.ParserTests) ... ok\ntest_supplied_cross_interface_enum_must_exist (test_parser.ParserTests) ... ok\ntest_symlink_directory_and_nonxml_symlinks_fail (test_parser.ParserTests) ... ok\ntest_total_snapshot_bytes_are_bounded (test_parser.ParserTests) ... ok\ntest_unsupported_integer_values_fail (test_parser.ParserTests) ... ok\ntest_version_and_deprecation_bounds (test_parser.ParserTests) ... ok\ntest_xml_cannot_fetch_or_expand_declared_entities (test_parser.ParserTests) ... ok\ntest_xml_depth_and_element_count_are_bounded (test_parser.ParserTests) ... ok\ntest_text_error_does_not_emit_terminal_controls_from_source_filename (test_review.TerminalReportReviewTests) ... ok\ntest_text_report_does_not_emit_terminal_controls_from_source_filename (test_review.TerminalReportReviewTests) ... ok\n\n----------------------------------------------------------------------\nRan 86 tests in 3.973s\n\nOK\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-m",
+        "pip",
+        "check"
+      ],
+      "expected_exit": 0,
+      "name": "sdist dependency consistency",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "No broken requirements found.\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport hashlib, json, pathlib, sys, wl_contract\nexpected = json.loads(sys.argv[1])\npackage = pathlib.Path(wl_contract.__file__).resolve().parent\nassert pathlib.Path(sys.prefix).resolve() in package.parents\nassert sys.flags.isolated, \"Installed byte check must use an isolated interpreter\"\nactual = {\"src/wl_contract/\" + path.name: hashlib.sha256(path.read_bytes()).hexdigest()\n          for path in package.glob(\"*.py\")}\nassert actual == expected, \"Installed package bytes differ from release provenance\"\nprint(json.dumps({\"verified_module_count\": len(actual),\n                  \"matches_release_provenance\": True, \"modules_sha256\": actual}, sort_keys=True))\n",
+        "{\"src/wl_contract/__init__.py\": \"a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8\", \"src/wl_contract/__main__.py\": \"3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a\", \"src/wl_contract/compare.py\": \"31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b\", \"src/wl_contract/parser.py\": \"8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b\"}"
+      ],
+      "expected_exit": 0,
+      "name": "sdist installed module provenance",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"matches_release_provenance\": true, \"modules_sha256\": {\"src/wl_contract/__init__.py\": \"a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8\", \"src/wl_contract/__main__.py\": \"3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a\", \"src/wl_contract/compare.py\": \"31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b\", \"src/wl_contract/parser.py\": \"8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b\"}, \"verified_module_count\": 4}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport importlib.metadata, json, pathlib, sys, wl_contract\norigin = pathlib.Path(wl_contract.__file__).resolve()\nprefix = pathlib.Path(sys.prefix).resolve()\nassert prefix in origin.parents, \"Package escaped its clean venv\"\nassert importlib.metadata.version(\"wl-contract\") == \"1.0.0\"\nassert \"src\" not in origin.parts, \"Source checkout import leakage\"\nprint(json.dumps({\"version\": importlib.metadata.version(\"wl-contract\"), \"inside_clean_venv\": True, \"isolated\": bool(sys.flags.isolated)}))\n"
+      ],
+      "expected_exit": 0,
+      "name": "wheel source-removed import origin",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"version\": \"1.0.0\", \"inside_clean_venv\": true, \"isolated\": true}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 0,
+      "name": "wheel offline unchanged",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"no_structural_hazards\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/broken.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 1,
+      "name": "wheel offline incompatible",
+      "observed_exit": 1,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"destructor_changed\",\n      \"message\": \"Object lifetime semantics changed at an existing opcode.\",\n      \"new\": false,\n      \"old\": true,\n      \"path\": \"interface/garden_counter_v1/request/0:destroy\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"opcode_shifted\",\n      \"message\": \"The old message moved to another opcode; appending is required.\",\n      \"new\": \"reset\",\n      \"old\": \"destroy\",\n      \"path\": \"interface/garden_counter_v1/request/0:destroy\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"destructor_changed\",\n      \"message\": \"Object lifetime semantics changed at an existing opcode.\",\n      \"new\": true,\n      \"old\": false,\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"opcode_shifted\",\n      \"message\": \"The old message moved to another opcode; appending is required.\",\n      \"new\": \"destroy\",\n      \"old\": \"set\",\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"wire_signature_changed\",\n      \"message\": \"Expanded wire argument layout changed (generic new_id includes string and uint).\",\n      \"new\": \"\",\n      \"old\": \"u\",\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"unversioned_message\",\n      \"message\": \"A new opcode must be gated above the previous interface maximum version.\",\n      \"new\": {\n        \"args\": [\n          {\n            \"allow_null\": false,\n            \"description\": \"\",\n            \"enum\": null,\n            \"interface\": null,\n            \"name\": \"value\",\n            \"type\": \"uint\"\n          }\n        ],\n        \"deprecated_since\": null,\n        \"description\": \"\",\n        \"destructor\": false,\n        \"name\": \"set\",\n        \"opcode\": 2,\n        \"since\": 1\n      },\n      \"old\": 1,\n      \"path\": \"interface/garden_counter_v1/request/2:set\",\n      \"severity\": \"break\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"broken.xml\",\n        \"sha256\": \"ab31b654daca9a7e9c097e1f909b71901ec109bc464f308cd9ccb9e8348f4058\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"incompatible\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/does-not-exist.xml",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 2,
+      "name": "wheel offline invalid",
+      "observed_exit": 2,
+      "passed": true,
+      "stderr": "{\"schema_version\": 1, \"verdict\": \"invalid\", \"error\": \"does-not-exist.xml: cannot inspect input (No such file or directory)\"}\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/extended.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 3,
+      "name": "wheel offline review",
+      "observed_exit": 3,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"version_increased\",\n      \"message\": \"Version increased; this does not repair changes at existing opcodes.\",\n      \"new\": 2,\n      \"old\": 1,\n      \"path\": \"interface/garden_counter_v1\",\n      \"severity\": \"info\"\n    },\n    {\n      \"code\": \"message_added\",\n      \"message\": \"Version-gated append; review behavior and implementation support.\",\n      \"new\": {\n        \"args\": [],\n        \"deprecated_since\": null,\n        \"description\": \"\",\n        \"destructor\": false,\n        \"name\": \"reset\",\n        \"opcode\": 2,\n        \"since\": 2\n      },\n      \"old\": null,\n      \"path\": \"interface/garden_counter_v1/request/2:reset\",\n      \"severity\": \"review\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"extended.xml\",\n        \"sha256\": \"869dad8b51e388920023ea9fa15d39c68ed107d1a9f9dc1c11d196eb8a5db353\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"needs_review\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/wheel-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/ext-background-effect.before.xml",
+        "<verification-root>/relocated-offline-inputs/ext-background-effect.after.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 1,
+      "name": "wheel offline real historical blur correction",
+      "observed_exit": 1,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"enum_value_changed\",\n      \"message\": \"An existing numeric enum contract changed.\",\n      \"new\": 1,\n      \"old\": 0,\n      \"path\": \"interface/ext_background_effect_manager_v1/enum/capability/entry/blur\",\n      \"severity\": \"break\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [\n      \"wl_region\",\n      \"wl_surface\"\n    ],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"ext-background-effect.after.xml\",\n        \"sha256\": \"e463b7863c97d7be05489b52b15cd0b3a5d8290b51340f62023b47d03b4217e3\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"ext-background-effect.before.xml\",\n        \"sha256\": \"9aa5011f38752c0146014f8569f3d3981db7dbb8c04e578a80beef6c98fa9653\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"incompatible\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport importlib.metadata, json, pathlib, sys, wl_contract\norigin = pathlib.Path(wl_contract.__file__).resolve()\nprefix = pathlib.Path(sys.prefix).resolve()\nassert prefix in origin.parents, \"Package escaped its clean venv\"\nassert importlib.metadata.version(\"wl-contract\") == \"1.0.0\"\nassert \"src\" not in origin.parts, \"Source checkout import leakage\"\nprint(json.dumps({\"version\": importlib.metadata.version(\"wl-contract\"), \"inside_clean_venv\": True, \"isolated\": bool(sys.flags.isolated)}))\n"
+      ],
+      "expected_exit": 0,
+      "name": "sdist source-removed import origin",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\"version\": \"1.0.0\", \"inside_clean_venv\": true, \"isolated\": true}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 0,
+      "name": "sdist offline unchanged",
+      "observed_exit": 0,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"no_structural_hazards\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/broken.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 1,
+      "name": "sdist offline incompatible",
+      "observed_exit": 1,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"destructor_changed\",\n      \"message\": \"Object lifetime semantics changed at an existing opcode.\",\n      \"new\": false,\n      \"old\": true,\n      \"path\": \"interface/garden_counter_v1/request/0:destroy\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"opcode_shifted\",\n      \"message\": \"The old message moved to another opcode; appending is required.\",\n      \"new\": \"reset\",\n      \"old\": \"destroy\",\n      \"path\": \"interface/garden_counter_v1/request/0:destroy\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"destructor_changed\",\n      \"message\": \"Object lifetime semantics changed at an existing opcode.\",\n      \"new\": true,\n      \"old\": false,\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"opcode_shifted\",\n      \"message\": \"The old message moved to another opcode; appending is required.\",\n      \"new\": \"destroy\",\n      \"old\": \"set\",\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"wire_signature_changed\",\n      \"message\": \"Expanded wire argument layout changed (generic new_id includes string and uint).\",\n      \"new\": \"\",\n      \"old\": \"u\",\n      \"path\": \"interface/garden_counter_v1/request/1:set\",\n      \"severity\": \"break\"\n    },\n    {\n      \"code\": \"unversioned_message\",\n      \"message\": \"A new opcode must be gated above the previous interface maximum version.\",\n      \"new\": {\n        \"args\": [\n          {\n            \"allow_null\": false,\n            \"description\": \"\",\n            \"enum\": null,\n            \"interface\": null,\n            \"name\": \"value\",\n            \"type\": \"uint\"\n          }\n        ],\n        \"deprecated_since\": null,\n        \"description\": \"\",\n        \"destructor\": false,\n        \"name\": \"set\",\n        \"opcode\": 2,\n        \"since\": 1\n      },\n      \"old\": 1,\n      \"path\": \"interface/garden_counter_v1/request/2:set\",\n      \"severity\": \"break\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"broken.xml\",\n        \"sha256\": \"ab31b654daca9a7e9c097e1f909b71901ec109bc464f308cd9ccb9e8348f4058\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"incompatible\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/does-not-exist.xml",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 2,
+      "name": "sdist offline invalid",
+      "observed_exit": 2,
+      "passed": true,
+      "stderr": "{\"schema_version\": 1, \"verdict\": \"invalid\", \"error\": \"does-not-exist.xml: cannot inspect input (No such file or directory)\"}\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/baseline.xml",
+        "<verification-root>/relocated-offline-inputs/extended.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 3,
+      "name": "sdist offline review",
+      "observed_exit": 3,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"version_increased\",\n      \"message\": \"Version increased; this does not repair changes at existing opcodes.\",\n      \"new\": 2,\n      \"old\": 1,\n      \"path\": \"interface/garden_counter_v1\",\n      \"severity\": \"info\"\n    },\n    {\n      \"code\": \"message_added\",\n      \"message\": \"Version-gated append; review behavior and implementation support.\",\n      \"new\": {\n        \"args\": [],\n        \"deprecated_since\": null,\n        \"description\": \"\",\n        \"destructor\": false,\n        \"name\": \"reset\",\n        \"opcode\": 2,\n        \"since\": 2\n      },\n      \"old\": null,\n      \"path\": \"interface/garden_counter_v1/request/2:reset\",\n      \"severity\": \"review\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"extended.xml\",\n        \"sha256\": \"869dad8b51e388920023ea9fa15d39c68ed107d1a9f9dc1c11d196eb8a5db353\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"baseline.xml\",\n        \"sha256\": \"7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"needs_review\"\n}\n"
+    },
+    {
+      "command": [
+        "<verification-root>/sdist-venv/bin/python",
+        "-I",
+        "-c",
+        "\nimport runpy, socket, sys, urllib.request\nattempts = []\ndef denied(*args, **kwargs):\n    attempts.append(True)\n    raise OSError(\"Network disabled by independent verifier\")\nsocket.socket.connect = denied\nsocket.socket.connect_ex = denied\nsocket.create_connection = denied\nsocket.getaddrinfo = denied\nurllib.request.urlopen = denied\nsys.argv = [\"wl-contract\"] + sys.argv[1:]\ntry:\n    runpy.run_module(\"wl_contract\", run_name=\"__main__\")\nexcept SystemExit as error:\n    code = error.code or 0\nelse:\n    code = 0\nif attempts:\n    print(\"Unexpected networking attempt\", file=sys.stderr)\n    raise SystemExit(99)\nraise SystemExit(code)\n",
+        "compare",
+        "<verification-root>/relocated-offline-inputs/ext-background-effect.before.xml",
+        "<verification-root>/relocated-offline-inputs/ext-background-effect.after.xml",
+        "--format",
+        "json"
+      ],
+      "expected_exit": 1,
+      "name": "sdist offline real historical blur correction",
+      "observed_exit": 1,
+      "passed": true,
+      "stderr": "",
+      "stdout": "{\n  \"findings\": [\n    {\n      \"code\": \"enum_value_changed\",\n      \"message\": \"An existing numeric enum contract changed.\",\n      \"new\": 1,\n      \"old\": 0,\n      \"path\": \"interface/ext_background_effect_manager_v1/enum/capability/entry/blur\",\n      \"severity\": \"break\"\n    }\n  ],\n  \"limits\": {\n    \"behavior_certified\": false,\n    \"external_interfaces_not_checked\": [\n      \"wl_region\",\n      \"wl_surface\"\n    ],\n    \"statement\": \"Only supplied XML declarations are compared. Unchanged prose is not proven correct; runtime behavior, external definitions, generated language ABI and advertised globals require human/native-tool review.\"\n  },\n  \"new\": {\n    \"sources\": [\n      {\n        \"path\": \"ext-background-effect.after.xml\",\n        \"sha256\": \"e463b7863c97d7be05489b52b15cd0b3a5d8290b51340f62023b47d03b4217e3\"\n      }\n    ]\n  },\n  \"old\": {\n    \"sources\": [\n      {\n        \"path\": \"ext-background-effect.before.xml\",\n        \"sha256\": \"9aa5011f38752c0146014f8569f3d3981db7dbb8c04e578a80beef6c98fa9653\"\n      }\n    ]\n  },\n  \"schema_version\": 1,\n  \"tool_version\": \"1.0.0\",\n  \"verdict\": \"incompatible\"\n}\n"
+    }
+  ],
+  "checksum_manifest_verified": true,
+  "environment": {
+    "machine": "arm64",
+    "platform": "macOS-26.5-arm64-arm-64bit",
+    "python": "3.9.6",
+    "system": "Darwin"
+  },
+  "expected_source_commit": "3eac47707b692cfff170be6cfa586ef7633425e1",
+  "extracted_source_removed_before_offline_workflow": true,
+  "github_asset_digests_verified": true,
+  "installed_module_provenance": {
+    "sdist": {
+      "matches_release_provenance": true,
+      "modules_sha256": {
+        "src/wl_contract/__init__.py": "a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8",
+        "src/wl_contract/__main__.py": "3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a",
+        "src/wl_contract/compare.py": "31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b",
+        "src/wl_contract/parser.py": "8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b"
+      },
+      "verified_module_count": 4
+    },
+    "wheel": {
+      "matches_release_provenance": true,
+      "modules_sha256": {
+        "src/wl_contract/__init__.py": "a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8",
+        "src/wl_contract/__main__.py": "3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a",
+        "src/wl_contract/compare.py": "31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b",
+        "src/wl_contract/parser.py": "8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b"
+      },
+      "verified_module_count": 4
+    }
+  },
+  "installed_suite_test_counts": {
+    "sdist": 86,
+    "wheel": 86
+  },
+  "network_attempts_during_offline_workflow": 0,
+  "offline_boundary": "Python socket connect/connect_ex, create_connection, getaddrinfo and urllib.request.urlopen were replaced by failing functions; any attempted call would fail verification with exit 99. This is Python-level instrumentation, not an operating-system network sandbox.",
+  "provenance": {
+    "artifacts_sha256": {
+      "wl_contract-1.0.0-py3-none-any.whl": "5a683a8b5bf00870ceea76f7c98d3a1b04582afc9eaec2080df72e96ad76a101",
+      "wl_contract-1.0.0.tar.gz": "90dee1f28c1b066789f58a209905d66dafb60de085f813f0eb81a7f26c722183"
+    },
+    "build": {
+      "frontend": "1.4.4",
+      "machine": "arm64",
+      "network_needed_for_runtime": false,
+      "python": "3.9.6",
+      "setuptools": "82.0.1",
+      "system": "Darwin",
+      "wheel": "0.48.0"
+    },
+    "product": "wl-contract",
+    "reproducible_binary_build_claimed": false,
+    "required_ci": "https://github.com/waxwingfactor/wl-contract/actions/runs/38794636931",
+    "reviewed_head": "68cef09ad0316601e480ff4072d67c6aef192f48",
+    "reviewed_pr": "https://github.com/waxwingfactor/wl-contract/pull/2",
+    "schema_version": 1,
+    "signature_or_attestation_claimed": false,
+    "source_commit": "3eac47707b692cfff170be6cfa586ef7633425e1",
+    "source_modules_sha256": {
+      "src/wl_contract/__init__.py": "a2be06c841f80a133e0199cd80ce331b6ccec350f75c07f756459d6837db03c8",
+      "src/wl_contract/__main__.py": "3f52bb3630bfcb80561ac42eb7a9539fbb9df825612b5e8301f86854331f055a",
+      "src/wl_contract/compare.py": "31a5c44451905f1ea057e48e05490ba6debe186660da130f15ec17839320fa2b",
+      "src/wl_contract/parser.py": "8a433e9414093c5166233a7f4d0b6f81f82a09845a4c0bcd804fbea62cff3a9b"
+    },
+    "source_repository": "https://github.com/waxwingfactor/wl-contract",
+    "source_tree": "clean git archive of exact merged commit",
+    "version": "1.0.0"
+  },
+  "provenance_commit_fields_verified": [
+    "source_commit"
+  ],
+  "release": "https://github.com/waxwingfactor/wl-contract/releases/tag/v1.0.0",
+  "release_published_at": "2026-10-15T19:34:11Z",
+  "relocated_input_hashes": {
+    "baseline.xml": "7172c43f9b442297f97453a4f6a509797c13e4dc8bdcc49a6872d6b4a0ba5f4d",
+    "broken.xml": "ab31b654daca9a7e9c097e1f909b71901ec109bc464f308cd9ccb9e8348f4058",
+    "ext-background-effect.after.xml": "e463b7863c97d7be05489b52b15cd0b3a5d8290b51340f62023b47d03b4217e3",
+    "ext-background-effect.before.xml": "9aa5011f38752c0146014f8569f3d3981db7dbb8c04e578a80beef6c98fa9653",
+    "extended.xml": "869dad8b51e388920023ea9fa15d39c68ed107d1a9f9dc1c11d196eb8a5db353"
+  },
+  "repository": "https://github.com/waxwingfactor/wl-contract",
+  "schema_version": 1,
+  "sdist_payload_verified": true,
+  "source_and_wheel_module_hashes_match_provenance": true,
+  "status": "passed",
+  "tag_commit": "3eac47707b692cfff170be6cfa586ef7633425e1",
+  "verifier": "independent AI-agent public artifact verification"
+}

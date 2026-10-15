@@ -80,6 +80,8 @@ they do not imply that an independent human approved the opportunity.
 | Smithay `wayland-scanner` | Generates Rust protocol bindings for the wayland-rs crates, avoiding manual binding maintenance. | Its documented purpose is generation from one protocol specification, rather than explaining a revision delta. |
 | Wayland Explorer | Makes many protocols readable, links their sources, and provides access to protocol merge requests. It is a strong documentation aid. | Its stated workflow is reading generated protocol documentation, rather than enforcing an old/new structural contract locally or offline. |
 | ABI Compliance Checker | Compares C/C++ library headers and shared objects. Its documented checks include changed enum values and macro constants, so generated-header analysis can catch some protocol-related changes. | Requires a C/C++ artifact/toolchain workflow and reasons about library API/ABI. It does not accept the Wayland XML pair directly or provide the protocol/version interpretation proposed here. |
+| Commercial Bump.sh service and its open-source CLI | Provides two-document API diffs, breaking-change failures, hosted changelogs and CI integration. Its documented API-definition formats are OpenAPI/Swagger and AsyncAPI. | These are different contracts from Wayland XML. The documented formats do not supply direct Wayland XML/opcode interpretation; converting formats would itself need a maintained semantic adapter. |
+| Commercial Altova DiffDog and Oxygen XML comparison tools | Provide XML-aware file/directory comparison, three-way comparison/merge, configurable ignored differences and visual review; Oxygen also documents machine-readable directory reports. | They are capable alternatives for expert XML review. The inspected features expose XML differences rather than Wayland opcode, generic-new-id expansion or since-version rules. The remaining interpretation is an inference from their documented general XML workflows, not a claim about every extension or integration. |
 | `git diff`, generated-header diffs, and expert review | Already available, flexible, and able to expose both code and normative prose changes. A careful expert can identify every change covered by this tool. | The reviewer must repeatedly reconstruct numeric opcodes, version constraints, and argument contracts. The proposed report makes that mechanical work explicit and repeatable while retaining prose review. |
 
 Sources for the table: [C scanner usage](https://android.googlesource.com/platform/external/wayland/+/d31e1e5594a947a60707c09402a221e6ea8f2555/src/scanner.c),
@@ -93,6 +95,15 @@ Sources for the table: [C scanner usage](https://android.googlesource.com/platfo
 The native scripts were read directly from the mirror's `main` branch on the
 research date; this statement is scoped to those inspected files, not every
 upstream test or future revision.
+
+The final commercial-tools challenge was checked during release-evidence review
+on the same research date, separately from the three pre-implementation passes.
+Primary feature documentation: [Bump.sh CLI formats, two-file diff and breaking-change flag](https://docs.bump.sh/help/continuous-integration/cli/),
+[Altova DiffDog XML and three-way comparison](https://www.altova.com/DiffDog),
+[Altova's order/ignore comparison options](https://www.altova.com/manual/DiffDog/diffdogprofessional/dd_filecomp_options_xml.html),
+[Oxygen comparison algorithms, directories and report formats](https://www.oxygenxml.com/xml_developer/xml_diff_and_merge.html).
+No paid trial or purchase was made, and no universal commercial-coverage claim
+is inferred from these inspected products.
 
 Wayland's official model also states that generated inline protocol entry points
 are outside the library ABI. Consequently a clean binary-library ABI comparison

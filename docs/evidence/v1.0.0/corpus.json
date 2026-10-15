@@ -1,0 +1,408 @@
+{
+  "upstream_repository": "https://github.com/wayland-mirror/wayland-protocols",
+  "upstream_revision": "819004adb3ab7e46f3fa3caef05b96e20434b244",
+  "product_revision": "3eac47707b692cfff170be6cfa586ef7633425e1",
+  "product_artifact_sha256": "5a683a8b5bf00870ceea76f7c98d3a1b04582afc9eaec2080df72e96ad76a101",
+  "installation": "actual public wheel in fresh environment; python -I; no PYTHONPATH",
+  "scope": "each XML compared individually to itself; parser coverage, not historical transition or runtime certification",
+  "accepted": 66,
+  "unsupported": 0,
+  "files": [
+    {
+      "path": "experimental/xx-cutouts/xx-cutouts-v1.xml",
+      "sha256": "a7c64ef3fa59d61d5c4a1edbac5decc06251cb89159cf9aa55723c5f0d5cac52",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-fractional-scale/xx-fractional-scale-v2.xml",
+      "sha256": "b1a17c914a2b23a0df692a0b5ac4924f57060d2d3964d938248c94d555b85c31",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-hotkey/xx-hotkey-v1.xml",
+      "sha256": "e2272a3961b8c908c3d7d9426c1f05192ee5afad57008aa4fdd11cfbea49bcfe",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-input-method/xx-input-method-v2.xml",
+      "sha256": "a41db79fda109965573a6726456537fe83854e4c4faa8b595bb6897fc37a749b",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-keyboard-filter/xx-keyboard-filter-v1.xml",
+      "sha256": "a29517afbb1f14ad01819f98e78d1c4bdda372628c9c6c2815b0752855fdb3e1",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-session-management/xx-session-management-v1.xml",
+      "sha256": "8cd13c0fbdb9f77c7cda620c52b3bb2ea15baaad0dd4ea6000b407123caa2ec2",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-text-input/xx-text-input-v3.xml",
+      "sha256": "464ec41b1ad6ccfc7a0b89d1918822ef5efc4774547512e14ac31c4c0070abd7",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "experimental/xx-zones/xx-zones-v1.xml",
+      "sha256": "dcf838869d2c2af9503e66c1205ce7e143bb2863a99a94c480e7d07e0617190c",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "stable/linux-dmabuf/linux-dmabuf-v1.xml",
+      "sha256": "29ce3ece4fb86e00c6e7f07332274bcb9ceb0eb8b1380d3635c1a67bbde830ab",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "stable/presentation-time/presentation-time.xml",
+      "sha256": "dffac93bcb2bb1d8c385e72b8a8c2c0d4d79a336866322f3ba886dce2b27b1e2",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "stable/tablet/tablet-v2.xml",
+      "sha256": "ac1128b26c779cf90b9ed71182ba5e34a7262826789adae206d825a4d45908b4",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "stable/viewporter/viewporter.xml",
+      "sha256": "dcb12279a03746301fe490aaed4b38a403485a925abfce2ccfceb644e104fe71",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "stable/xdg-shell/xdg-shell.xml",
+      "sha256": "7ba7f9c8473deee674cb1f154a18abd0bb0cc072604fc055b0c15e459fc4c7df",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/alpha-modifier/alpha-modifier-v1.xml",
+      "sha256": "f0b4a43b9e48783fafdb46319fa72b34a41afd932f8613d7cadaf7203f2ffa35",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/color-management/color-management-v1.xml",
+      "sha256": "18a2678e3352c3be3fbeed20005d48852b7235d0d78f08b9c987a0b8e91449f9",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/color-representation/color-representation-v1.xml",
+      "sha256": "b824688e0e5c1d01e12afe1d3f82503092ec7599affcd6471fda6d296d4f7e3b",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/commit-timing/commit-timing-v1.xml",
+      "sha256": "ff3fcf31d13d44bad756a50fda663a43008bacbbd2bf8cba3a1bf5ffe7f54172",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/content-type/content-type-v1.xml",
+      "sha256": "203d17a26baa2ab4a8c2c9cb737c953fa3263c73a0a8aa6e552a41b3eac2196d",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/cursor-shape/cursor-shape-v1.xml",
+      "sha256": "bb57d91e53a79dadab7c612dab87c233393cee73673feefa7442cfbfdd9aed2f",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/drm-lease/drm-lease-v1.xml",
+      "sha256": "18f325e92285473eca0567ea1038abb16849b8638b36e458ff551f3ca68ef80c",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-background-effect/ext-background-effect-v1.xml",
+      "sha256": "e463b7863c97d7be05489b52b15cd0b3a5d8290b51340f62023b47d03b4217e3",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-data-control/ext-data-control-v1.xml",
+      "sha256": "293deba5dfdb974fbcf8dcf891a30a51a36a8bba0047dc6bdf6a03194089b7fb",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-foreign-toplevel-list/ext-foreign-toplevel-list-v1.xml",
+      "sha256": "6b2ffb3a07d679d1c4170263adfefb9a7c37dd34ed3db5180bf58cb8ff8fbd0b",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-idle-notify/ext-idle-notify-v1.xml",
+      "sha256": "e56a9c22684e6b46655f7221b798328e304c1efc8f63f01241a1cf8c070f4c30",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-image-capture-source/ext-image-capture-source-v1.xml",
+      "sha256": "4ef41d15e4cdb9f550158391358ceec724a6708b43b7efedec03121a6bb8458d",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-image-copy-capture/ext-image-copy-capture-v1.xml",
+      "sha256": "41a446653f788fabb404cab3168c0bd667c1ff4b54f1f0bb1e18810a1f47d73f",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-session-lock/ext-session-lock-v1.xml",
+      "sha256": "a05df7d95c5e523e457037b3a149484e8064828cda66971f3c7caeb87d597a81",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-transient-seat/ext-transient-seat-v1.xml",
+      "sha256": "d7d836047218030558bbd4e706e6a9b7e91338c4b2b637215be6a5d26da58d81",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/ext-workspace/ext-workspace-v1.xml",
+      "sha256": "9b449d9d5d40f6032eba9813d18093b84f249a2cf38d6755dec7bca7eb96b0f3",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/fifo/fifo-v1.xml",
+      "sha256": "0b6c31dfe6bca19b712745c9de7a4a398558cfa1087b1938e96fd3b10ffc1069",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/fractional-scale/fractional-scale-v1.xml",
+      "sha256": "5941de5d28f427ecdadddc8623a6f6af0a30b0ab4726847236ba7a7652b81316",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/linux-drm-syncobj/linux-drm-syncobj-v1.xml",
+      "sha256": "5ede41a56eced6aa635caa7ab2996066bff9fd211620dbf9f73aafab740bec71",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/pointer-warp/pointer-warp-v1.xml",
+      "sha256": "1389e89c68c6f6d231fd2dcda57fa9c75c5230d0ac1deffa8d80a7648e197e66",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/security-context/security-context-v1.xml",
+      "sha256": "f4f8ba15ebd2df62db611b1de32e992f660a4aeeea83250cb88fa468da42ffcb",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/single-pixel-buffer/single-pixel-buffer-v1.xml",
+      "sha256": "4c2cc1355b06a2d2fe68ccb1cf4b72cca51e1ba21c5d3e0c404f577f40d1301e",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/tearing-control/tearing-control-v1.xml",
+      "sha256": "846895b4a90ba1ddd75673cefc596480beef318f1694ec7dbca0fec54bb27043",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-activation/xdg-activation-v1.xml",
+      "sha256": "d8418be2d5738d50aff788bef1c7574f33f26659aa045447ff2ef9b78c58fe01",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-dialog/xdg-dialog-v1.xml",
+      "sha256": "2822956bdf13d51848ff4b5e29c509028c1204c6e06262ee926b001f43a42dbb",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-session-management/xdg-session-management-v1.xml",
+      "sha256": "3674591ca8e68f76297c535e8edd6783d84b59086c38ebe08ff5ff1f2dec5bae",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-system-bell/xdg-system-bell-v1.xml",
+      "sha256": "863c5efcb1a19961c019d23b9875ab84a158da802f5622f5ecc30522c6019330",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-toplevel-drag/xdg-toplevel-drag-v1.xml",
+      "sha256": "687d7a1db0ced0e2794dc2d5be1a80b1dc71c46a055aedd882838586345ee1dc",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-toplevel-icon/xdg-toplevel-icon-v1.xml",
+      "sha256": "5e57a72fa9ccf1666c56d49cc86408f068c21e5e6a09ddd468ee65d08478f882",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xdg-toplevel-tag/xdg-toplevel-tag-v1.xml",
+      "sha256": "bde3615b434a237388c5592028345eef185ab1e7ade9023dd2413a4b2c56ab9f",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "staging/xwayland-shell/xwayland-shell-v1.xml",
+      "sha256": "a6589c3205d1f424cbd2708c1507daf143db2d355dcd931f6f79986c0dc205b6",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/fullscreen-shell/fullscreen-shell-unstable-v1.xml",
+      "sha256": "fcc50bf0b48610d55bbe096a53da433e8557ea36a31feba2d77bf0cb9181bb52",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/idle-inhibit/idle-inhibit-unstable-v1.xml",
+      "sha256": "c2ac9f002c6669ca6c02eb9b587b8e9108e3ce6deab4a2de58b576f4f864ca38",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/input-method/input-method-unstable-v1.xml",
+      "sha256": "e04464e22eee9ac67e21c3316c8bb47293656902c2f26b91ebdd8b40eeba03a0",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/input-timestamps/input-timestamps-unstable-v1.xml",
+      "sha256": "92d9911f070407d470458f59ffdee5406ce3b6368270a93e6ecd9f4f71368bb0",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/keyboard-shortcuts-inhibit/keyboard-shortcuts-inhibit-unstable-v1.xml",
+      "sha256": "9117d9e8ec02e9a3c3c55803b41e1227e76986f555f7c12eeb29f796fa63e69b",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/linux-dmabuf/linux-dmabuf-unstable-v1.xml",
+      "sha256": "0681c01199393662229b0d9f71a4bd502350ea8f782a7049fa30e392b50fb2c8",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/linux-explicit-synchronization/linux-explicit-synchronization-unstable-v1.xml",
+      "sha256": "4d83eed81e2911ec7731137d4209f685faeab76c15a994d8a46963a83fce02ea",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/pointer-constraints/pointer-constraints-unstable-v1.xml",
+      "sha256": "f980fac900ba1dcfbbe97f588fc17b893926bd2b57624563653a1bfe4d035948",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/pointer-gestures/pointer-gestures-unstable-v1.xml",
+      "sha256": "9f7b6ad542f444001312113395b8de6f24e59d6f0c57c9b44f6c3c498ef004d7",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/primary-selection/primary-selection-unstable-v1.xml",
+      "sha256": "d568482ba84df6e531698b1f531810860995ca24d69495427fe43aee6017f52c",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/relative-pointer/relative-pointer-unstable-v1.xml",
+      "sha256": "ab4930dd3084f732b6fdd12ee6dbd0a112a758ed8a57b170366391dbeb1a22ff",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/tablet/tablet-unstable-v1.xml",
+      "sha256": "2816521e2716a98faa6f4f026527ec0912f8876136d58527ec3356553471fc6d",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/tablet/tablet-unstable-v2.xml",
+      "sha256": "db291b574adb2d42d27f3d01a77723bb3350a7a32e6d33de16513521b42294a9",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/text-input/text-input-unstable-v1.xml",
+      "sha256": "a3671b8e50ebe04f4d114c7b982763ae2964e44be163fb3e9eb30efca8a111b1",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/text-input/text-input-unstable-v3.xml",
+      "sha256": "160815cda13c285a30df1971d8f0a5b3aac07071537df59916d2f748b18e4f59",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-decoration/xdg-decoration-unstable-v1.xml",
+      "sha256": "68753c4a85a28659e3aa1fe0f138329a8bf3dff0b4789f4663a2c7fedbfecf2f",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-foreign/xdg-foreign-unstable-v1.xml",
+      "sha256": "bf5ea82077193a03b511e04f483a2a1bcf7f91e3e93bc550be4a69a74c0ad571",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-foreign/xdg-foreign-unstable-v2.xml",
+      "sha256": "625d83fbb068f48e69e739eafde507f10cdfe7480146f3ac10af9a2ddf551c80",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-output/xdg-output-unstable-v1.xml",
+      "sha256": "363d547c3eefe8959160cac903ff90b311d4b183005557d73640d9df2cfd7f79",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-shell/xdg-shell-unstable-v5.xml",
+      "sha256": "d771caedd1cd4eb965f05242005f87c7eccbd5eac2ddf8f1ee879bd4b45fb546",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xdg-shell/xdg-shell-unstable-v6.xml",
+      "sha256": "2299fcb1ce5b337d82247e7d988cf9da150af346f2fc65e9778d4950916981d1",
+      "exit": 0,
+      "findings": 0
+    },
+    {
+      "path": "unstable/xwayland-keyboard-grab/xwayland-keyboard-grab-unstable-v1.xml",
+      "sha256": "fcc1e24ec465c209de576f75bf87438b8339e4da42051a3f26b48916292c7c6f",
+      "exit": 0,
+      "findings": 0
+    }
+  ]
+}

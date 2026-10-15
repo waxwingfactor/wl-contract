@@ -259,6 +259,18 @@ assert importlib.metadata.version("wl-contract") == "1.0.0"
 assert "src" not in origin.parts, "Source checkout import leakage"
 print(json.dumps({"version": importlib.metadata.version("wl-contract"), "inside_clean_venv": True, "isolated": bool(sys.flags.isolated)}))
 '''
+        installed_module_check = r'''
+import hashlib, json, pathlib, sys, wl_contract
+expected = json.loads(sys.argv[1])
+package = pathlib.Path(wl_contract.__file__).resolve().parent
+assert pathlib.Path(sys.prefix).resolve() in package.parents
+assert sys.flags.isolated, "Installed byte check must use an isolated interpreter"
+actual = {"src/wl_contract/" + path.name: hashlib.sha256(path.read_bytes()).hexdigest()
+          for path in package.glob("*.py")}
+assert actual == expected, "Installed package bytes differ from release provenance"
+print(json.dumps({"verified_module_count": len(actual),
+                  "matches_release_provenance": True, "modules_sha256": actual}, sort_keys=True))
+'''
         for name, interpreter in (("wheel", wheel_python), ("sdist", sdist_python)):
             self.command(name + " import origin", [interpreter, "-I", "-c", origin_check])
             suite = self.command(name + " bundled full suite", [interpreter, "-I", "-m", "unittest", "discover", "-s", source / "tests", "-v"])
@@ -266,6 +278,10 @@ print(json.dumps({"version": importlib.metadata.version("wl-contract"), "inside_
             assert count and int(count.group(1)) == 86, "Expected all 86 bundled tests"
             self.report.setdefault("installed_suite_test_counts", {})[name] = int(count.group(1))
             self.command(name + " dependency consistency", [interpreter, "-I", "-m", "pip", "check"])
+            installed = self.command(name + " installed module provenance",
+                                     [interpreter, "-I", "-c", installed_module_check,
+                                      json.dumps(self.report["provenance"]["source_modules_sha256"], sort_keys=True)])
+            self.report.setdefault("installed_module_provenance", {})[name] = json.loads(installed.stdout)
         handoff = self.root / "temporary-input-location"
         handoff.mkdir()
         for path in (source / "examples").glob("*.xml"):
@@ -303,6 +319,13 @@ print(json.dumps({"version": importlib.metadata.version("wl-contract"), "inside_
                     assert json.loads(result.stderr)["verdict"] == "invalid"
         assert input_hashes == {path.name: sha256(path.read_bytes()) for path in relocated.glob("*.xml")}
         self.report["network_attempts_during_offline_workflow"] = 0
+        self.report["offline_boundary"] = (
+            "Python socket connect/connect_ex, create_connection, getaddrinfo and "
+            "urllib.request.urlopen were replaced by failing functions; any attempted "
+            "call would fail verification with exit 99. This is Python-level "
+            "instrumentation, not an operating-system network sandbox."
+        )
+        assert len(self.report["checks"]) == 23
         self.report["status"] = "passed"
         self.save()
         print("Independent public release verification PASSED", flush=True)
